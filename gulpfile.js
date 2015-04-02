@@ -18,12 +18,13 @@ gulp.task('sass', function() {
         .pipe(minifyCSS())
         .pipe(rename('main.min.css'))
         .pipe(gulp.dest('build/assets/css'));
-        
 });
 
 // Minify Javascript
 gulp.task('js', function() {
     return gulp.src('src/js/main.js')
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest('build/assets/js'))
         .pipe(uglify())
         .pipe(rename('main.min.js'))
         .pipe(gulp.dest('build/assets/js')); 
