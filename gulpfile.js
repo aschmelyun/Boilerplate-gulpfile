@@ -6,7 +6,8 @@ var sass        = require('gulp-sass'),
     concat      = require('gulp-concat'),
     uglify      = require('gulp-uglify'),
     minifyCSS   = require('gulp-minify-css'),
-    rename      = require('gulp-rename');
+    rename      = require('gulp-rename'),
+    watch       = require('gulp-watch');
 
 // Compile SCSS
 gulp.task('sass', function() {
@@ -22,7 +23,7 @@ gulp.task('sass', function() {
 
 // Minify Javascript
 gulp.task('js', function() {
-    return gulp.src('src/js/main.js')
+    return gulp.src('src/js/*.js')
         .pipe(concat('main.js'))
         .pipe(gulp.dest('build/assets/js'))
         .pipe(uglify())
